@@ -1,4 +1,4 @@
-function getArrayParams(arr) {
+function getArrayParams(...arr) {
   let min = Math.min(...arr);
   let max = Math.max(...arr);
   let sum = 0;
@@ -10,51 +10,51 @@ function getArrayParams(arr) {
 }
 
 function summElementsWorker(...arr) {
-  if (args.length === 0) {
+  if (arr.length === 0) {
     return 0;
   }
   
-  let summ = args.reduce((acc, curr) => acc + curr, 0);
+  let summ = arr.reduce((acc, curr) => acc + curr, 0);
   return summ;
 }
 
 function differenceMaxMinWorker(...arr) {
-  if (args.length === 0) {
+  if (arr.length === 0) {
     return 0;
   }
   
-  let maxWorker = Math.max(...args);
-  let minWorker = Math.min(...args);
+  let maxWorker = Math.max(...arr);
+  let minWorker = Math.min(...arr);
   return maxWorker - minWorker;
 }
 
 function differenceEvenOddWorker(...arr) {
-  if (args.length === 0) {
+  if (arr.length === 0) {
     return 0;
   }
   
   let sumEvenElement = 0;
   let sumOddElement = 0;
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] % 2 === 0) {
-      sumEvenElement += args[i];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      sumEvenElement += arr[i];
     } else {
-      sumOddElement += args[i];
+      sumOddElement += arr[i];
     }
   }
   return sumEvenElement - sumOddElement;
 }
 
 function averageEvenElementsWorker(...arr) {
-  if (args.length === 0) {
+  if (arr.length === 0) {
     return 0;
   }
   
   let sumEvenElement = 0;
   let countEvenElement = 0;
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] % 2 === 0) {
-      sumEvenElement += args[i];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      sumEvenElement += arr[i];
       countEvenElement++;
     }
   }
@@ -64,7 +64,7 @@ function averageEvenElementsWorker(...arr) {
 function makeWork (arrOfArr, func) {
   let maxWorkerResult = -Infinity;
   for (let i = 0; i < arrOfArr.length; i++) {
-    let resutl = func(...arrOfArr[i]);
+    let result = func(...arrOfArr[i]);
     if (result > maxWorkerResult) {
       maxWorkerResult = result;
     }
